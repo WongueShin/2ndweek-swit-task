@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const ProfileWarrper = styled.div`
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     background-color: white;
     border: 2px solid #A8A8A8;
