@@ -4,6 +4,7 @@ export const ChatWarpper = styled.div`
     display: flex;
     flex-direction: row;
     height: fit-content;
+    padding:10px;
 `
 
 export const BalloonWarpper = styled.div`
