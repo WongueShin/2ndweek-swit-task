@@ -1,4 +1,4 @@
-import * as S from "Components/Balloon/Balloon.style";
+import * as S from "Components/Balloon/style.Balloon";
 
 interface BalloonProps {
   content: string;
