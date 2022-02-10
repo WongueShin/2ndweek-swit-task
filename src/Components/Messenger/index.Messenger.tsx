@@ -1,6 +1,7 @@
 import * as S from "Components/Messenger/style.Messenger";
 import React, { useState } from "react";
 import Chat from "Components/Chat/index.Chat";
+import Input from "Components/Input/index.Input";
 import { messageJson } from "Components/Messenger/data";
 import { dataType } from "src/types/dataType";
 
@@ -19,6 +20,7 @@ const Messenger = (): JSX.Element => {
             );
           })}
       </S.MessengerContainer>
+      <Input/>
     </>
   );
 };
