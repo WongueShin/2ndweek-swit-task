@@ -1,4 +1,4 @@
-import Main from "Components/Main/Main.index";
+import Main from "Components/Main/index.Main";
 import { GlobalStyle } from "Style/style";
 
 const App = () => {
