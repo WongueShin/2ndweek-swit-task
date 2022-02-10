@@ -1,11 +1,13 @@
 import Main from "Components/Main/Main.index";
+import { GlobalStyle } from "Style/style";
 
 const App = () => {
   return (
-    <div className="App">
+    <>
+      <GlobalStyle />
       App!!!!!
       <Main/>
-    </div>
+    </>
   );
 }
 
