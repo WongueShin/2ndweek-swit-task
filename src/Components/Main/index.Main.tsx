@@ -1,10 +1,11 @@
-const Main = () :JSX.Element => {
+import Messenger from 'Components/Messenger/index.Messenger';
 
+const Main = (): JSX.Element => {
   return (
-    <div>
-      Main!!
-    </div>
-  )
-}
+    <>
+      <Messenger />
+    </>
+  );
+};
 
 export default Main;
