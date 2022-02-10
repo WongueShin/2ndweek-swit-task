@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
-export const BalloonContainer = styled.div``;
+export const BalloonContainer = styled.div`
+  height: fit-content;
+  display: table;
+`;
 
 export const Container = styled.div<{ background: string }>`
+  display: table-cell;
   width: 200px;
   height: fit-content;
   background: ${(props) => (props.background === "" ? "#fff" : "#5c5cfb")};
