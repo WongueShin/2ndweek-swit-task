@@ -6,20 +6,16 @@ interface ButtonProps {
   userName: string;
 }
 
-const ButtonPropsDummy = {
-  userName : "사람3"
-}
 
-// const Button = ({ userName }: ButtonProps) => {
-const Button = () => {
+const Button = ({ userName }: ButtonProps) => {
   return (
     <S.ButtonContainer>
       <S.Btn>
-        <FontAwesomeIcon icon={faAngleRight}/> {/* 아이콘 */}
+        <FontAwesomeIcon icon={faAngleRight}/>
       </S.Btn>
-      {ButtonPropsDummy.userName === "사람3" && (
+      {userName === "사람3" && (
         <S.Btn>
-          <FontAwesomeIcon icon={faTrashCan}/> {/* 아이콘 */}
+          <FontAwesomeIcon icon={faTrashCan}/>
         </S.Btn>
       )}
     </S.ButtonContainer>

@@ -2,7 +2,7 @@ import * as S from "Components/Balloon/style.Balloon";
 
 interface BalloonProps {
   content: string;
-  background: string,
+  userName: string,
 }
 
 // const BallonPropsDummy :BalloonProps = {
@@ -10,14 +10,11 @@ interface BalloonProps {
 //   background : "ㅋㅋㅋ"
 // }
 
-const Balloon = ({ content, background }: BalloonProps) => {
-
-
-  console.log(background)
+const Balloon = ({ content, userName }: BalloonProps) => {
 
   return (
     <S.BalloonContainer >
-      <S.Container background={background}>
+      <S.Container userName={userName}>
         <p>{content}</p>
       </S.Container>
     </S.BalloonContainer>
