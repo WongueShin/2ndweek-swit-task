@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { messageJson } from 'src/Messenger/data';
+import { messageJson } from 'Components/Messenger/data';
 import { dataType } from 'src/types/dataType';
 
 const Messenger = (): JSX.Element => {
