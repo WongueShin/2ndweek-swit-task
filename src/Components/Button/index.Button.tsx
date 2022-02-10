@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleRight, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import * as S from "Components/Button/style.Button";
 
 interface ButtonProps {
@@ -13,11 +15,11 @@ const Button = () => {
   return (
     <S.ButtonContainer>
       <S.Btn>
-        <span>답장</span> {/* 아이콘 */}
+        <FontAwesomeIcon icon={faAngleRight}/> {/* 아이콘 */}
       </S.Btn>
       {ButtonPropsDummy.userName === "사람3" && (
         <S.Btn>
-          <span>삭제</span> {/* 아이콘 */}
+          <FontAwesomeIcon icon={faTrashCan}/> {/* 아이콘 */}
         </S.Btn>
       )}
     </S.ButtonContainer>
