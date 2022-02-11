@@ -79,7 +79,7 @@ const Messenger = (): JSX.Element => {
             })}
         </S.ChatList>
       </S.BoxShadowWarpper>
-      <Input reply={reply}  ChatListData = {ChatListData} setChatListData = {setChatListData}/>
+      <Input reply={reply} setReply={setReply}  ChatListData = {ChatListData} setChatListData = {setChatListData}/>
     </S.MessengerContainer>
   );
 };
