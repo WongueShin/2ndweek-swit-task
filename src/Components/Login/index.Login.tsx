@@ -28,18 +28,25 @@ const Login = () => {
   return (
     <>
       <S.LoginContainer>
-        <S.LoginForm onSubmit={handleOnSubmit}>
-          <S.NameInPut
-            name="userNameInput"
-            value={userNameInput}
-            onChange={onChangeUserName}
-            placeholder="이름을 입력하세요"
-          />
-          <S.LoginLogoutButton type="submit">로그인</S.LoginLogoutButton>
-        </S.LoginForm>
-        <S.LoginLogoutButton onClick={onLogoutClick}>
-          로그아웃
-        </S.LoginLogoutButton>
+        {user.isLogin === false ? (
+          <>
+            <S.LoginForm onSubmit={handleOnSubmit}>
+              <S.NameInput
+                name="userNameInput"
+                value={userNameInput}
+                onChange={onChangeUserName}
+                placeholder="이름을 입력하세요"
+              />
+              <S.LoginLogoutButton type="submit">로그인</S.LoginLogoutButton>
+            </S.LoginForm>
+          </>
+        ) : (
+          <>
+            <S.LoginLogoutButton onClick={onLogoutClick}>
+              로그아웃
+            </S.LoginLogoutButton>
+          </>
+        )}
       </S.LoginContainer>
     </>
   );
