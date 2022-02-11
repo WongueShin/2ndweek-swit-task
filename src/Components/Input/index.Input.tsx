@@ -1,5 +1,14 @@
 import React, { useState , useEffect } from "react";
+import { useSelector } from 'react-redux';
+import { RootState } from 'src/Redux/index.Redux';
+import { MockDataType } from 'src/Types/type';
 import * as S from 'Components/Input/style.input';
+
+interface InputPropsType {
+    reply : string
+    ChatListData : MockDataType[]
+    setChatListData : React.Dispatch<React.SetStateAction<MockDataType[]>>
+}
 
 interface handlerFuncArgument{
     setMessageValue: React.Dispatch<React.SetStateAction<string>>
@@ -13,8 +22,11 @@ interface OnChangeArgument extends handlerFuncArgument{
     e : React.ChangeEvent<HTMLTextAreaElement>
 }
 
-interface InputPropsType {
-    reply : string
+interface SendMessageArgument {
+    ChatListData : MockDataType[]
+    setChatListData : React.Dispatch<React.SetStateAction<MockDataType[]>>
+    MessageValue: string
+    setMessageValue: React.Dispatch<React.SetStateAction<string>>
 }
 
 const handleKeyDown = ({e, MessageValue, setMessageValue}:KeyDownArgument):void => {
@@ -33,7 +45,14 @@ const handleOnChange = ({e, setMessageValue}:OnChangeArgument):void => {
     setMessageValue(e.target.value);
 }
 
-const Input = ({reply}:InputPropsType):JSX.Element => {
+const handleSendMessage = ({MessageValue, setMessageValue,  ChatListData,  setChatListData}:SendMessageArgument):void => {
+    const newChatListData = [...ChatListData];
+    newChatListData.push()
+}
+
+const Input = ({reply, ChatListData,  setChatListData}:InputPropsType):JSX.Element => {
+    const user = useSelector((state: RootState) => state.user);
+    console.log(user);
     const [MessageValue, setMessageValue] = useState<string>('')
 
     useEffect( ()=> {
