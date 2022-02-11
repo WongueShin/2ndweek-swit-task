@@ -21,11 +21,14 @@ export const LoginLogoutButton = styled.button`
   border-radius: 5px;
   color: #ffffff;
   border: none;
+  box-shadow: 1px 3px 0 rgb(0, 0, 0, 0.5);
   &:hover {
     background-color: #46b37a;
   }
   &:active {
+    box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
     position: relative;
+    top: 2px;
   }
 `;
 export const LoginForm = styled.form``;
