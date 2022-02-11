@@ -18,7 +18,10 @@ export const Body = styled.div<{userId:string,loginUser:string}>`
   padding: 12px;
   margin: ${(props) => (props.userId !== props.loginUser ? "0 0 0 20px" : "0 20px 0 0")};
   border-radius: 8px;
-  word-break: break-all;
+
+  pre{
+    white-space: pre-wrap;
+  }
 
   &:after {
 
