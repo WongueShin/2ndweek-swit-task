@@ -5,7 +5,7 @@ export const ChatWarpper = styled.div<{userId:string,loginUser:string}>`
     flex-direction: row;
     height: fit-content;
     padding:10px;
-    float:${props=>props.userId === props.loginUser ? "right" : "left"};
+    justify-content: ${props=>props.userId === props.loginUser ? "flex-end" : "flex-start"};
 `
 
 export const BalloonWarpper = styled.div`

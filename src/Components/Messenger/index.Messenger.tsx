@@ -12,6 +12,7 @@ const Messenger = (): JSX.Element => {
   const user = useSelector((state: RootState) => state.user);
   let messageJsonCopy = JSON.parse(JSON.stringify(messageJson));
   const [data, setData] = useState<MockDataType[]>(messageJsonCopy);
+  const [reply, setReply] = useState<string>('');
 
   useEffect(() => {
     let tmpData: MockDataType[] = [...data];
@@ -48,13 +49,13 @@ const Messenger = (): JSX.Element => {
                   userId={el.userId}
                   loginUser={user.userId}
                 >
-                  <Chat data={el} index={index} onDelete={onDelete} />
+                  <Chat data={el} setReply={setReply} index={index} onDelete={onDelete} />
                 </S.Message>
               );
             })}
         </S.ChatList>
       </S.BoxShadowWarpper>
-      <Input />
+      <Input reply={reply}/>
     </S.MessengerContainer>
   );
 };
