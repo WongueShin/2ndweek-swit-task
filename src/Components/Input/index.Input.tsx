@@ -1,7 +1,8 @@
 import React, { useState , useEffect } from "react";
 import { useSelector } from 'react-redux';
 import { RootState } from 'src/Redux/index.Redux';
-import { MockDataType } from 'src/Types/type';
+import { MockDataType, userState } from 'src/Types/type';
+import {USER_PROFILE_PATH} from 'Const/Constant';
 import * as S from 'Components/Input/style.input';
 
 interface InputPropsType {
@@ -14,29 +15,32 @@ interface handlerFuncArgument{
     setMessageValue: React.Dispatch<React.SetStateAction<string>>
 }
 
-interface KeyDownArgument extends handlerFuncArgument{
-    e : React.KeyboardEvent<HTMLTextAreaElement>,
-    MessageValue: string
-}
 interface OnChangeArgument extends handlerFuncArgument{
     e : React.ChangeEvent<HTMLTextAreaElement>
 }
 
-interface SendMessageArgument {
+interface SendMessageArgument extends handlerFuncArgument{
     ChatListData : MockDataType[]
     setChatListData : React.Dispatch<React.SetStateAction<MockDataType[]>>
     MessageValue: string
-    setMessageValue: React.Dispatch<React.SetStateAction<string>>
+    user: userState
 }
 
-const handleKeyDown = ({e, MessageValue, setMessageValue}:KeyDownArgument):void => {
+interface KeyDownArgument extends SendMessageArgument{
+    e : React.KeyboardEvent<HTMLTextAreaElement>,
+}
+
+
+
+
+const handleKeyDown = ({e, MessageValue, setMessageValue, ChatListData, setChatListData, user}:KeyDownArgument):void => {
     if(e.keyCode === 13){
         e.preventDefault();
         if(e.shiftKey){
             setMessageValue(MessageValue+'\n');
             return;
         }
-        setMessageValue('');
+        handleSendMessage({MessageValue, setMessageValue,  ChatListData,  setChatListData ,user});
     }
 }
 
@@ -45,14 +49,22 @@ const handleOnChange = ({e, setMessageValue}:OnChangeArgument):void => {
     setMessageValue(e.target.value);
 }
 
-const handleSendMessage = ({MessageValue, setMessageValue,  ChatListData,  setChatListData}:SendMessageArgument):void => {
+const handleSendMessage = ({MessageValue, setMessageValue,  ChatListData,  setChatListData ,user}:SendMessageArgument):void => {
     const newChatListData = [...ChatListData];
-    newChatListData.push()
+    newChatListData.push({
+        userId: user.userId,
+        userName: user.userName,
+        profileImage: USER_PROFILE_PATH.ID_65bd3353,
+        content: MessageValue,
+        date: new Date().toISOString().replace('T', ' ').substring(0, 19),
+        isDel: false
+    })
+    setChatListData(newChatListData);
+    setMessageValue('');
 }
 
 const Input = ({reply, ChatListData,  setChatListData}:InputPropsType):JSX.Element => {
     const user = useSelector((state: RootState) => state.user);
-    console.log(user);
     const [MessageValue, setMessageValue] = useState<string>('')
 
     useEffect( ()=> {
@@ -66,11 +78,11 @@ const Input = ({reply, ChatListData,  setChatListData}:InputPropsType):JSX.Eleme
             <S.MessageTextarea 
                 placeholder="Message"
                 value={MessageValue}
-                onKeyDown={e=> {handleKeyDown({e, MessageValue, setMessageValue})}}
+                onKeyDown={e=> {handleKeyDown({e, MessageValue, setMessageValue, ChatListData, setChatListData, user})}}
                 onChange={e=>{handleOnChange({e, setMessageValue})}}/>
             </S.MessageForm>
             <S.ButtonWarpper>
-                <S.SendButton>
+                <S.SendButton onClick={e=>{handleSendMessage({MessageValue, setMessageValue,  ChatListData,  setChatListData ,user})}}>
                     전송
                 </S.SendButton>
             </S.ButtonWarpper>

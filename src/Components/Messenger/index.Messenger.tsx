@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react';
 import Chat from 'Components/Chat/index.Chat';
 import { useSelector } from 'react-redux';
 import { messageJson } from 'Components/Messenger/data';
-import { MockDataType } from 'src/Types/type';
+import { MockDataType, userState } from 'src/Types/type';
 import { RootState } from 'src/Redux/index.Redux';
 import Input from 'Components/Input/index.Input';
 import Header from 'Components/Header/index.Header';
 
 const Messenger = (): JSX.Element => {
-  const user = useSelector((state: RootState) => state.user);
+  const user:userState = useSelector((state: RootState) => state.user);
   let messageJsonCopy = JSON.parse(JSON.stringify(messageJson));
   const [ChatListData, setChatListData] = useState<MockDataType[]>(messageJsonCopy);
   const [reply, setReply] = useState<string>('');
