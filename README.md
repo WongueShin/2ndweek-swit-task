@@ -47,7 +47,7 @@ url=
 
 [What does npm install --legacy-peer-deps do exactly?🚀](https://stackoverflow.com/questions/66239691/what-does-npm-install-legacy-peer-deps-do-exactly-when-is-it-recommended-wh)
 
-[When to use `--force` and --legacy-peer-deps?🚀](https://stackoverflow.com/questions/66020820/npm-when-to-use-force-and-legacy-peer-deps)
+[When to use --force and --legacy-peer-deps?🚀](https://stackoverflow.com/questions/66020820/npm-when-to-use-force-and-legacy-peer-deps)
 
 위 문서의 요약은 다음과 같습니다.
 
@@ -61,13 +61,22 @@ url=
 
 여기서 `--force` 키워드를 사용하면 필요한 `peerDependencies`를 설치 후, 설치를 진행합니다.
 
-![force](https://user-images.githubusercontent.com/84373490/153620995-853dcf0e-5416-4420-88bf-92fea4ed797e.jpg)
+![force](https://user-images.githubusercontent.com/84373490/153630787-d53ebd82-7829-4038-babf-bee1b9c3766e.jpg)
+
+위 사진에서는 `react-scripts 4.0.0`을 설치하려했지만 충돌이 발생하여 설치하지 않고, 해당 라이브러리를 설치합니다. 버전다운 시킬 수 없어 패스한걸로 보입니다. 이 외에도 `package-lock.json`에 추가되는 파일이 존재합니다. 여기서 만약 설치에 실패한다면 
+
+```
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force, or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+```
+라는 오류 메시지를 출력합니다.
 
 `--legacy-peer-deps` 키워드를 사용하면 `peerDependencies` 설치 없이, 설치를 진행합니다.
 
 ![legacy](https://user-images.githubusercontent.com/84373490/153620989-6b802011-9255-4e0a-85bb-33b29e6a1d32.jpg)
 
-위의 참고글에 의하면 `--force` 키워드를 추천한다는 의견입니다.
+만약 해당 이슈를 만난다면 `--force` 키워드 사용을 추천합니다. 버전을 고정시키려는 시도가 있기 때문에 `--legacy-peer-deps` 키워드보다 엄격하다고 볼 수 있습니다.
 
 ### Redux Persist
 
