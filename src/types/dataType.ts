@@ -4,4 +4,5 @@ export interface dataType {
   profileImage: string;
   content: string;
   date: string;
+  isDel: boolean;
 }
