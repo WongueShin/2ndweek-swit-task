@@ -11,6 +11,11 @@ import Header from 'Components/Header/index.Header';
 const Messenger = (): JSX.Element => {
   const user: userState = useSelector((state: RootState) => state.user);
   let messageJsonCopy = JSON.parse(JSON.stringify(messageJson));
+  messageJson.sort(function (a, b) {
+    let aTime = new Date(a.date).getTime();
+    let bTime = new Date(b.date).getTime();
+    return aTime - bTime;
+  });
   const [ChatListData, setChatListData] =
     useState<MockDataType[]>(messageJsonCopy);
   const [reply, setReply] = useState<string>('');
@@ -18,11 +23,6 @@ const Messenger = (): JSX.Element => {
 
   useEffect(() => {
     let tmpData: MockDataType[] = [...ChatListData];
-    tmpData = tmpData.sort(function (a, b) {
-      let aTime = new Date(a.date).getTime();
-      let bTime = new Date(b.date).getTime();
-      return aTime - bTime;
-    });
     if (user.isLogin) {
       console.log('로그인');
       tmpData.map(el => {
