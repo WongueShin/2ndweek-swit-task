@@ -30,16 +30,18 @@ const Messenger = (): JSX.Element => {
   }, [user.userName, user.userId]);
   return (
     <S.MessengerContainer>
-      <S.ChatList>
-        {data &&
-          data.map((el :MockDataType , index:number) => {
-            return (
-              <S.Message key={index} userId={el.userId} loginUser={user.userId}>
-                <Chat data={el} />
-              </S.Message>
-            );
-          })}
-      </S.ChatList>
+      <S.BoxShadowWarpper>
+        <S.ChatList>
+          {data &&
+            data.map((el :MockDataType , index:number) => {
+              return (
+                <S.Message key={index} userId={el.userId} loginUser={user.userId}>
+                  <Chat data={el} />
+                </S.Message>
+              );
+            })}
+        </S.ChatList>
+      </S.BoxShadowWarpper>
       <Input />
     </S.MessengerContainer>
   );

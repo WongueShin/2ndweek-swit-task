@@ -12,5 +12,7 @@ export const InputContainer = styled.div`
 `
 
 export const MessageTextarea = styled.textarea`
-
+    background-color: #e6e6ee;
+    border-radius: 5px;
+    border: none;
 `
