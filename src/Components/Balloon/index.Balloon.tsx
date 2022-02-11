@@ -1,8 +1,11 @@
 import * as S from "Components/Balloon/style.Balloon";
+import { RootState } from 'src/Redux/index.Redux';
+import { useSelector } from 'react-redux';
 
 interface BalloonProps {
-  content: string;
-  userName: string,
+  content: string,
+  userId: string,
+  loginUser: string,
 }
 
 // const BallonPropsDummy :BalloonProps = {
@@ -10,11 +13,13 @@ interface BalloonProps {
 //   background : "ㅋㅋㅋ"
 // }
 
-const Balloon = ({ content, userName }: BalloonProps) => {
+const Balloon = ({ content, userId, loginUser }: BalloonProps) => {
+
+  const user = useSelector((state: RootState) => state.user);
 
   return (
     <S.BalloonContainer >
-      <S.Container userName={userName}>
+      <S.Container userId={userId} loginUser={loginUser}>
         <p>{content}</p>
       </S.Container>
     </S.BalloonContainer>

@@ -3,17 +3,18 @@ import { faAngleRight, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import * as S from "Components/Button/style.Button";
 
 interface ButtonProps {
-  userName: string;
+  userId: string,
+  loginUser: string,
 }
 
 
-const Button = ({ userName }: ButtonProps) => {
+const Button = ({ userId,loginUser }: ButtonProps) => {
   return (
     <S.ButtonContainer>
       <S.Btn>
         <FontAwesomeIcon icon={faAngleRight}/>
       </S.Btn>
-      {userName === "사람3" && (
+      {userId === loginUser && (
         <S.Btn>
           <FontAwesomeIcon icon={faTrashCan}/>
         </S.Btn>

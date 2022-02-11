@@ -5,6 +5,11 @@ export const MessengerContainer = styled.ul`
   background:#E2E5EE;
   height: 60vh;
   width: 500px;
+  display:flex;
+  flex-direction:column;
+  padding:0;
 `;
 
-export const Message = styled.li``;
+export const Message = styled.li`
+float:left;
+`;
