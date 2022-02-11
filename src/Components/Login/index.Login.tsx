@@ -3,11 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../Redux/index.Redux';
 import { onLogin, onLogout } from '../../Redux/user.Redux';
 import * as S from 'Components/Login/style.Login';
+//import useInput from 'src/Hooks/useInput';
 const Login = () => {
   const user = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
   const [userNameInput, setUserNameInput] = useState<string>('');
-
+  //const [userNameInput, onChangeUserName] = useInput<string>('');
   const onChangeUserName = (e: ChangeEvent<HTMLInputElement>) => {
     setUserNameInput(e.target.value);
   };
@@ -15,6 +16,10 @@ const Login = () => {
     event.preventDefault();
     if (userNameInput.length === 0) {
       window.alert('이름을 입력해주세요');
+      return;
+    }
+    if (userNameInput.length >= 12) {
+      window.alert('12자 미만으로 입력해주세요');
       return;
     }
     dispatch(onLogin({ userName: userNameInput }));
