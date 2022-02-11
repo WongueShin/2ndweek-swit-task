@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const MessengerContainer = styled.div`
   width: 500px;
   margin-left: 30px;
+  padding: 9px;
+  border: solid 1px #c3c3c3;
+  border-radius: 5px;
 `;
 
 export const ChatList = styled.ul`
@@ -15,6 +18,7 @@ export const ChatList = styled.ul`
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;
+  border-radius: 5px;
 
   &::-webkit-scrollbar {
     border-radius: 6px;
@@ -34,9 +38,9 @@ export const BoxShadowWarpper = styled.div`
     display: block;
     position: relative;
     left: -10%;
-    top: -40px;
+    top: -20px;
     width: 120%;
-    height: 40px;
+    height: 20px;
     box-shadow: inset 0px -10px 10px rgba(0,0,0,0.1);
   }
 `
