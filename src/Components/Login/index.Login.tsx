@@ -17,8 +17,6 @@ const Login = () => {
   const onLogoutClick = (event: React.MouseEvent<HTMLElement>) => {
     dispatch(onLogout());
   };
-  console.log(user.userName);
-  console.log(user.userId);
 
   return (
     <>

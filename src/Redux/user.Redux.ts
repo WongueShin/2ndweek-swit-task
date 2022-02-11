@@ -32,7 +32,7 @@ const user = (
       return {
         ...state,
         userName: action.data.userName,
-        userId: 'ID_65bd3353',
+        userId: '65bd3353',
       };
     case ONLOGOUT:
       return {
