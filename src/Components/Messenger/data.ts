@@ -1,6 +1,6 @@
-import { dataType } from 'src/types/dataType';
+import { MockDataType } from 'src/Types/type';
 import { USER_PROFILE_PATH } from 'Const/Constant';
-export const messageJson: dataType[] = [
+export const messageJson: MockDataType[] = [
   {
     userId: '926931d2',
     userName: '사람1',

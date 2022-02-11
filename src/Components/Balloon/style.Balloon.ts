@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BalloonContainer = styled.div`
 `;
 
-export const Container = styled.div<{ userId: string,loginUser:string }>`
+export const Container = styled.div<{userId:string,loginUser:string}>`
   display: flex;
   width: 200px;
   height: fit-content;
