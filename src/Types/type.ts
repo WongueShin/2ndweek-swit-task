@@ -6,3 +6,9 @@ export interface MockDataType {
   date: string;
   isDel: boolean;
 }
+
+export type userState = {
+  userId: string;
+  userName: string;
+  isLogin: boolean;
+};

@@ -1,8 +1,5 @@
-type userState = {
-  userId: string;
-  userName: string;
-  isLogin: boolean;
-};
+import {userState} from "src/Types/type"
+
 const initialState: userState = {
   userId: '',
   userName: '',
