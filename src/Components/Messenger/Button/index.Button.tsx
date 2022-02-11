@@ -6,14 +6,17 @@ import { MockDataType } from 'src/Types/type';
 interface ButtonPropsType {
   data: MockDataType;
   loginUser:string;
-  setReply:React.Dispatch<React.SetStateAction<number>>;
+  setReply:React.Dispatch<React.SetStateAction<string>>;
   onDelete(index: number): void;
   index: number;
 }
 
 const Button = ({ data, setReply, loginUser, onDelete, index }: ButtonPropsType) => {
 
-  
+  const handleReply = (data :MockDataType):void => {
+    const newState = `${data.userName}\n${data.content}\n`
+    setReply(newState);
+  }
 
   return (
     <S.ButtonContainer>
@@ -26,7 +29,7 @@ const Button = ({ data, setReply, loginUser, onDelete, index }: ButtonPropsType)
           <FontAwesomeIcon icon={faTrashCan} />
         </S.Btn>
       )}
-      <S.Btn onClick={()=>{setReply(index)}} >
+      <S.Btn onClick={()=>{handleReply(data)}} >
         <FontAwesomeIcon icon={faAngleRight} />
       </S.Btn>
     </S.ButtonContainer>

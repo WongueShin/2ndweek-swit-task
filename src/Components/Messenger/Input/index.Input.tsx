@@ -14,11 +14,11 @@ interface InputPropsType {
 
 interface handlerFuncArgument{
     setMessageValue: React.Dispatch<React.SetStateAction<string>>
+    reply: string
 }
 
 interface OnChangeArgument extends handlerFuncArgument{
     e : React.ChangeEvent<HTMLTextAreaElement>
-    reply: string
 }
 
 interface SendMessageArgument extends handlerFuncArgument{
@@ -26,12 +26,11 @@ interface SendMessageArgument extends handlerFuncArgument{
     setChatListData : React.Dispatch<React.SetStateAction<MockDataType[]>>
     MessageValue: string
     user: userState
+    setReply: React.Dispatch<React.SetStateAction<string>>
 }
 
 interface KeyDownArgument extends SendMessageArgument{
-    e : React.KeyboardEvent<HTMLTextAreaElement>,
-    reply : string
-    setReply: React.Dispatch<React.SetStateAction<string>>
+    e : React.KeyboardEvent<HTMLTextAreaElement>
 }
 
 
@@ -44,7 +43,7 @@ const handleKeyDown = ({e, MessageValue, setMessageValue, ChatListData, setChatL
             setMessageValue(MessageValue+'\n');
             return;
         }
-        handleSendMessage({MessageValue, setMessageValue,  ChatListData,  setChatListData ,user});
+        handleSendMessage({MessageValue, setMessageValue,  ChatListData,  setChatListData, reply, setReply ,user});
     }
     if(e.key === "Backspace" && MessageValue.length === 0){
         setReply('');
@@ -56,18 +55,19 @@ const handleOnChange = ({e, setMessageValue, reply}:OnChangeArgument):void => {
     setMessageValue(e.target.value.slice(reply.length));
 }
 
-const handleSendMessage = ({MessageValue, setMessageValue,  ChatListData,  setChatListData ,user}:SendMessageArgument):void => {
+const handleSendMessage = ({MessageValue, setMessageValue,  ChatListData, setChatListData, reply, setReply, user}:SendMessageArgument):void => {
     const newChatListData = [...ChatListData];
     newChatListData.push({
         userId: user.userId,
         userName: user.userName,
         profileImage: USER_PROFILE_PATH.ID_65bd3353,
-        content: MessageValue,
+        content: reply + MessageValue,
         date: new Date().toISOString().replace('T', ' ').substring(0, 19),
         isDel: false
     })
     setChatListData(newChatListData);
     setMessageValue('');
+    setReply('');
 }
 
 const Input = ({reply, setReply , ChatListData,  setChatListData}:InputPropsType):JSX.Element => {
@@ -79,7 +79,7 @@ const Input = ({reply, setReply , ChatListData,  setChatListData}:InputPropsType
         if(testAreaRef.current){
             testAreaRef.current.scrollTop = testAreaRef.current.scrollHeight
         }
-    }, [MessageValue])
+    }, [MessageValue, reply])
 
     return(
         <S.InputContainer>
@@ -93,7 +93,7 @@ const Input = ({reply, setReply , ChatListData,  setChatListData}:InputPropsType
                 />
             </S.MessageForm>
             <S.ButtonWarpper>
-                <S.SendButton onClick={e=>{handleSendMessage({MessageValue, setMessageValue,  ChatListData,  setChatListData ,user})}}>
+                <S.SendButton onClick={e=>{handleSendMessage({MessageValue, setMessageValue,  ChatListData,  setChatListData, reply, setReply ,user})}}>
                     전송
                 </S.SendButton>
             </S.ButtonWarpper>
