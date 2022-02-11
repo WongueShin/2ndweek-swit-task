@@ -32,9 +32,9 @@ const Messenger = (): JSX.Element => {
     <>
       <S.MessengerContainer>
         {data &&
-          data.map(el => {
+          data.map((el: dataType, index:number) => {
             return (
-              <S.Message>
+              <S.Message key={index}>
                 <Chat data={el} />
               </S.Message>
             );
