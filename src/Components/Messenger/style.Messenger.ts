@@ -13,6 +13,18 @@ export const ChatList = styled.ul`
   flex-direction:column;
   padding:0;
   margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    border-radius: 6px;
+    background: none;
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: #c4c4bd;
+  }
 `;
 
 export const BoxShadowWarpper = styled.div`
@@ -34,16 +46,4 @@ export const Message = styled.li<{userId:string,loginUser:string}>`
   display: flex;
   flex-direction: column;
   padding: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-
-  &::-webkit-scrollbar {
-    border-radius: 6px;
-    background: none;
-    width: 8px;
-  }
-  &::-webkit-scrollbar-thumb {
-    border-radius: 6px;
-    background-color: #c4c4bd;
-  }
 `;

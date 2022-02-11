@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import * as S from 'Components/Input/style.input';
 
 interface handlerFuncArgument{
@@ -11,6 +11,10 @@ interface KeyDownArgument extends handlerFuncArgument{
 }
 interface OnChangeArgument extends handlerFuncArgument{
     e : React.ChangeEvent<HTMLTextAreaElement>
+}
+
+interface InputPropsType {
+    reply : string
 }
 
 const handleKeyDown = ({e, MessageValue, setMessageValue}:KeyDownArgument):void => {
@@ -29,8 +33,12 @@ const handleOnChange = ({e, MessageValue, setMessageValue}:OnChangeArgument):voi
     setMessageValue(e.target.value);
 }
 
-const Input = ():JSX.Element => {
+const Input = ({reply}:InputPropsType):JSX.Element => {
     const [MessageValue, setMessageValue] = useState<string>('')
+
+    useEffect( ()=> {
+    MessageValue === '' ? setMessageValue(reply) : setMessageValue(reply+MessageValue);
+    },[reply])
 
     return(
         <S.InputContainer>

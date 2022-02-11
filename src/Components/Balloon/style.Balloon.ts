@@ -3,7 +3,12 @@ import styled from "styled-components";
 export const BalloonContainer = styled.div`
 `;
 
-export const Container = styled.div<{userId:string,loginUser:string}>`
+export const Header = styled.div<{userId:string,loginUser:string}>`
+  text-align: ${(props)=>props.userId !== props.loginUser ? "left" : "right"};
+  margin:${(props)=>props.userId !== props.loginUser ? "0 0 4px 25px" : "0 25px 4px 0"};
+`
+
+export const Body = styled.div<{userId:string,loginUser:string}>`
   display: flex;
   width: 200px;
   height: fit-content;
