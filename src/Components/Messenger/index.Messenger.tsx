@@ -18,7 +18,6 @@ const Messenger = (): JSX.Element => {
       console.log('로그인');
       tmpData.map(el => {
         if (el.userId === user.userId) {
-          console.log('gd');
           return (el.userName = user.userName);
         } else return null;
       });
@@ -28,9 +27,6 @@ const Messenger = (): JSX.Element => {
       let messageJsonReset = JSON.parse(JSON.stringify(messageJson));
       setData(messageJsonReset);
     }
-    console.log(messageJson);
-    console.log(tmpData);
-    console.log(data);
   }, [user.userName, user.userId]);
   return (
     <>
