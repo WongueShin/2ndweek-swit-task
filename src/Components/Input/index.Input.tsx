@@ -50,6 +50,11 @@ const Input = ({reply}:InputPropsType):JSX.Element => {
                 onKeyDown={e=> {handleKeyDown({e, MessageValue, setMessageValue})}}
                 onChange={e=>{handleOnChange({e, setMessageValue})}}/>
             </S.MessageForm>
+            <S.ButtonWarpper>
+                <S.SendButton>
+                    전송
+                </S.SendButton>
+            </S.ButtonWarpper>
         </S.InputContainer>
     )
 }
