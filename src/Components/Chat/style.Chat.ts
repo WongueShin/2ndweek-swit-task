@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-export const ChatWarpper = styled.div`
+export const ChatWarpper = styled.div<{userId:string,loginUser:string}>`
     display: flex;
     flex-direction: row;
     height: fit-content;
     padding:10px;
+    float:${props=>props.userId === props.loginUser ? "right" : "left"};
 `
 
 export const BalloonWarpper = styled.div`
