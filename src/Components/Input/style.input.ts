@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const InputContainer = styled.div`
     background-color: #FFFFFF;
     position: relative;
-    height: 100px;
     left: 0;
     bottom: 0;
     padding: 10px;
@@ -26,5 +25,32 @@ export const MessageTextarea = styled.textarea`
     box-sizing: border-box;
     &:focus{
         outline: none;
+    }
+`
+export const ButtonWarpper = styled.div`
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: end;
+`
+export const SendButton = styled.button`
+    width: 120px;
+    height: 35px;
+    background-color: #57b785;
+    border-radius: 5px;
+    color: #FFFFFF;
+    border: none;
+    box-shadow: 1px 3px 0 rgb(0,0,0,0.5);
+
+    &:hover{
+        background-color: #46b37a;
+    }
+
+    &:active{
+        box-shadow: 1px 1px 0 rgb(0,0,0,0.5); 
+        position: relative;
+        top:2px;
     }
 `

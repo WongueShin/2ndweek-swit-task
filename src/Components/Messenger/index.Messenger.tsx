@@ -31,10 +31,22 @@ const Messenger = (): JSX.Element => {
     }
   }, [user.isLogin]);
 
+  const onDeleteEvent = (index: number): boolean => {
+    let messageTmp = data[index].content;
+    console.log(messageTmp.length);
+    if (messageTmp.length > 10) {
+      messageTmp = messageTmp.substring(0, 10) + '...';
+    }
+    let isConfirm = window.confirm(`${messageTmp} 메시지를 삭제하겠습니까?`);
+    return isConfirm;
+  };
   const onDelete = (index: number): void => {
-    let tmpData: MockDataType[] = [...data];
-    tmpData[index].isDel = true;
-    setData(tmpData);
+    let isConfirm = onDeleteEvent(index);
+    if (isConfirm === true) {
+      let tmpData: MockDataType[] = [...data];
+      tmpData[index].isDel = true;
+      setData(tmpData);
+    }
   };
   return (
     <S.MessengerContainer>
@@ -49,13 +61,18 @@ const Messenger = (): JSX.Element => {
                   userId={el.userId}
                   loginUser={user.userId}
                 >
-                  <Chat data={el} setReply={setReply} index={index} onDelete={onDelete} />
+                  <Chat
+                    data={el}
+                    setReply={setReply}
+                    index={index}
+                    onDelete={onDelete}
+                  />
                 </S.Message>
               );
             })}
         </S.ChatList>
       </S.BoxShadowWarpper>
-      <Input reply={reply}/>
+      <Input reply={reply} />
     </S.MessengerContainer>
   );
 };
