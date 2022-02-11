@@ -11,11 +11,11 @@ import Header from 'Components/Header/index.Header';
 const Messenger = (): JSX.Element => {
   const user = useSelector((state: RootState) => state.user);
   let messageJsonCopy = JSON.parse(JSON.stringify(messageJson));
-  const [data, setData] = useState<MockDataType[]>(messageJsonCopy);
+  const [ChatListData, setChatListData] = useState<MockDataType[]>(messageJsonCopy);
   const [reply, setReply] = useState<string>('');
 
   useEffect(() => {
-    let tmpData: MockDataType[] = [...data];
+    let tmpData: MockDataType[] = [...ChatListData];
     if (user.isLogin) {
       console.log('로그인');
       tmpData.map(el => {
@@ -23,16 +23,16 @@ const Messenger = (): JSX.Element => {
           return (el.userName = user.userName);
         } else return null;
       });
-      setData(tmpData);
+      setChatListData(tmpData);
     } else {
       console.log('로그아웃');
       let messageJsonReset = JSON.parse(JSON.stringify(messageJson));
-      setData(messageJsonReset);
+      setChatListData(messageJsonReset);
     }
   }, [user.isLogin]);
 
   const onDeleteEvent = (index: number): boolean => {
-    let messageTmp = data[index].content;
+    let messageTmp = ChatListData[index].content;
     console.log(messageTmp.length);
     if (messageTmp.length > 10) {
       messageTmp = messageTmp.substring(0, 10) + '...';
@@ -43,9 +43,9 @@ const Messenger = (): JSX.Element => {
   const onDelete = (index: number): void => {
     let isConfirm = onDeleteEvent(index);
     if (isConfirm === true) {
-      let tmpData: MockDataType[] = [...data];
+      let tmpData: MockDataType[] = [...ChatListData];
       tmpData[index].isDel = true;
-      setData(tmpData);
+      setChatListData(tmpData);
     }
   };
   return (
@@ -53,8 +53,8 @@ const Messenger = (): JSX.Element => {
       <Header />
       <S.BoxShadowWarpper>
         <S.ChatList>
-          {data &&
-            data.map((el: MockDataType, index: number) => {
+          {ChatListData &&
+            ChatListData.map((el: MockDataType, index: number) => {
               return (
                 <S.Message
                   key={index}
@@ -72,7 +72,7 @@ const Messenger = (): JSX.Element => {
             })}
         </S.ChatList>
       </S.BoxShadowWarpper>
-      <Input reply={reply} />
+      <Input reply={reply}  ChatListData = {ChatListData} setChatListData = {setChatListData}/>
     </S.MessengerContainer>
   );
 };
