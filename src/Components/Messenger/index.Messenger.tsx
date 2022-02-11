@@ -16,7 +16,7 @@ const Messenger = (): JSX.Element => {
 
   useEffect(() => {
     let tmpData: MockDataType[] = [...data];
-    if (user.userId) {
+    if (user.isLogin) {
       console.log('로그인');
       tmpData.map(el => {
         if (el.userId === user.userId) {
@@ -29,7 +29,7 @@ const Messenger = (): JSX.Element => {
       let messageJsonReset = JSON.parse(JSON.stringify(messageJson));
       setData(messageJsonReset);
     }
-  }, [user.userName, user.userId]);
+  }, [user.isLogin]);
 
   const onDelete = (index: number): void => {
     let tmpData: MockDataType[] = [...data];

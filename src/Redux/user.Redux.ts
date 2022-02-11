@@ -1,10 +1,12 @@
 type userState = {
   userId: string;
   userName: string;
+  isLogin: boolean;
 };
 const initialState: userState = {
   userId: '',
   userName: '',
+  isLogin: false,
 };
 
 const ONLOGIN = 'ONLOGIN' as const;
@@ -33,12 +35,14 @@ const user = (
         ...state,
         userName: action.data.userName,
         userId: '65bd3353',
+        isLogin: true,
       };
     case ONLOGOUT:
       return {
         ...state,
-        userId: '',
+        userId: '65bd3353',
         userName: '',
+        isLogin: false,
       };
     default:
       return state;
