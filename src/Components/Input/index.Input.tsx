@@ -37,7 +37,8 @@ const Input = ({reply}:InputPropsType):JSX.Element => {
     const [MessageValue, setMessageValue] = useState<string>('')
 
     useEffect( ()=> {
-    MessageValue === '' ? setMessageValue(reply) : setMessageValue(reply+MessageValue);
+
+    MessageValue === '' ? setMessageValue(reply) : setMessageValue(reply+MessageValue.split("\n").pop());
     },[reply])
 
     return(
