@@ -2,12 +2,12 @@ import React, { useState , useEffect } from "react";
 import * as S from 'Components/Input/style.input';
 
 interface handlerFuncArgument{
-    MessageValue: string,
     setMessageValue: React.Dispatch<React.SetStateAction<string>>
 }
 
 interface KeyDownArgument extends handlerFuncArgument{
-    e : React.KeyboardEvent<HTMLTextAreaElement>
+    e : React.KeyboardEvent<HTMLTextAreaElement>,
+    MessageValue: string
 }
 interface OnChangeArgument extends handlerFuncArgument{
     e : React.ChangeEvent<HTMLTextAreaElement>
@@ -28,7 +28,7 @@ const handleKeyDown = ({e, MessageValue, setMessageValue}:KeyDownArgument):void 
     }
 }
 
-const handleOnChange = ({e, MessageValue, setMessageValue}:OnChangeArgument):void => {
+const handleOnChange = ({e, setMessageValue}:OnChangeArgument):void => {
     e.preventDefault();
     setMessageValue(e.target.value);
 }
@@ -42,11 +42,13 @@ const Input = ({reply}:InputPropsType):JSX.Element => {
 
     return(
         <S.InputContainer>
+            <S.MessageForm>
             <S.MessageTextarea 
                 placeholder="Message"
                 value={MessageValue}
                 onKeyDown={e=> {handleKeyDown({e, MessageValue, setMessageValue})}}
-                onChange={e=>{handleOnChange({e, MessageValue, setMessageValue})}}/>
+                onChange={e=>{handleOnChange({e, setMessageValue})}}/>
+            </S.MessageForm>
         </S.InputContainer>
     )
 }
