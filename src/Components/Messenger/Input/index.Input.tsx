@@ -56,6 +56,10 @@ const handleOnChange = ({e, setMessageValue, reply}:OnChangeArgument):void => {
 }
 
 const handleSendMessage = ({MessageValue, setMessageValue,  ChatListData, setChatListData, reply, setReply, user}:SendMessageArgument):void => {
+    if(MessageValue.length === 0){
+        alert("메시지를 입력해주세요");
+        return;
+    }
     const newChatListData = [...ChatListData];
     newChatListData.push({
         userId: user.userId,
@@ -93,7 +97,7 @@ const Input = ({reply, setReply , ChatListData,  setChatListData}:InputPropsType
                 />
             </S.MessageForm>
             <S.ButtonWarpper>
-                <S.SendButton onClick={e=>{handleSendMessage({MessageValue, setMessageValue,  ChatListData,  setChatListData, reply, setReply ,user})}}>
+                <S.SendButton disabled={MessageValue.length === 0}  onClick={e=>{handleSendMessage({MessageValue, setMessageValue,  ChatListData,  setChatListData, reply, setReply ,user})}}>
                     전송
                 </S.SendButton>
             </S.ButtonWarpper>

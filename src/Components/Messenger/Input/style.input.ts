@@ -62,4 +62,8 @@ export const SendButton = styled.button`
         position: relative;
         top:2px;
     }
+    &:disabled{
+        background-color: #575757;
+        color: #ababab;
+    }
 `
