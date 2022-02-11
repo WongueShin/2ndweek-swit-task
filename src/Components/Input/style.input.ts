@@ -6,3 +6,7 @@ export const InputContainer = styled.div`
     left: 0;
     bottom: 0;
 `
+
+export const MessageTextarea = styled.textarea`
+
+`
