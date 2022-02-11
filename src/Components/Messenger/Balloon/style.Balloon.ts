@@ -15,6 +15,7 @@ export const Header = styled.div<{ userId: string; loginUser: string }>`
 export const BodyContainer = styled.div`
   display: flex;
   justify-content: flex-end;
+
 `;
 
 export const Body = styled.div<{ userId: string; loginUser: string }>`
@@ -22,14 +23,15 @@ export const Body = styled.div<{ userId: string; loginUser: string }>`
   width: 200px;
   height: fit-content;
   background: ${(props) =>
-    props.userId !== props.loginUser ? "#fff" : "#5c5cfb"};
+  props.userId !== props.loginUser ? "#fff" : "#5c5cfb"};
   position: relative;
   color: ${(props) => (props.userId !== props.loginUser ? "#000" : "#fff")};
   padding: 12px;
   margin: ${(props) =>
-    props.userId !== props.loginUser ? "0 0 0 20px" : "0 20px 0 0"};
+  props.userId !== props.loginUser ? "0 0 0 20px" : "0 20px 0 0"};
   border-radius: 8px;
   float: ${(props) => (props.userId !== props.loginUser ? "left" : "right")};
+  word-break: break-all;
 
   pre {
     white-space: pre-wrap;
