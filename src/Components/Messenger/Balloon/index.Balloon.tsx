@@ -28,21 +28,21 @@ const Balloon = ({
           <S.Body userId={data.userId} loginUser={loginUser}>
             {data.isDel ? <p>삭제된 메세지 입니다</p> : <pre>{data.content}</pre>}
           </S.Body>
-          <Button
+          { !data.isDel && <Button
             setReply={setReply}
             data={data}
             loginUser={loginUser}
             index={index}
             onDelete={onDelete}
-          />
+          /> }
         </S.BodyContainer> : <S.BodyContainer>
-        <Button
-          setReply={setReply}
-          data={data}
-          loginUser={loginUser}
-          index={index}
-          onDelete={onDelete}
-        />
+        { !data.isDel && <Button
+            setReply={setReply}
+            data={data}
+            loginUser={loginUser}
+            index={index}
+            onDelete={onDelete}
+          /> }
         <S.Body userId={data.userId} loginUser={loginUser}>
           {data.isDel ? <p>삭제된 메세지 입니다</p> : <pre>{data.content}</pre>}
         </S.Body>
