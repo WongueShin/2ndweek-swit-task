@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from "react";
+import React, { useState , useEffect, useRef } from "react";
 import { useSelector } from 'react-redux';
 import { RootState } from 'src/Redux/index.Redux';
 import { MockDataType, userState } from 'src/Types/type';
@@ -64,22 +64,30 @@ const handleSendMessage = ({MessageValue, setMessageValue,  ChatListData,  setCh
 }
 
 const Input = ({reply, ChatListData,  setChatListData}:InputPropsType):JSX.Element => {
+    const testAreaRef = useRef<HTMLTextAreaElement>(null);
     const user = useSelector((state: RootState) => state.user);
     const [MessageValue, setMessageValue] = useState<string>('')
-
     useEffect( ()=> {
 
     MessageValue === '' ? setMessageValue(reply) : setMessageValue(reply+MessageValue.split("\n").pop());
     },[reply])
 
+    useEffect(() => {
+        if(testAreaRef.current){
+            testAreaRef.current.scrollTop = testAreaRef.current.scrollHeight
+        }
+    }, [MessageValue])
+
     return(
         <S.InputContainer>
             <S.MessageForm>
-            <S.MessageTextarea 
-                placeholder="Message"
-                value={MessageValue}
-                onKeyDown={e=> {handleKeyDown({e, MessageValue, setMessageValue, ChatListData, setChatListData, user})}}
-                onChange={e=>{handleOnChange({e, setMessageValue})}}/>
+                <S.MessageTextarea
+                    ref={testAreaRef}                         
+                    placeholder="Message"
+                    value={MessageValue}
+                    onKeyDown={e=> {handleKeyDown({e, MessageValue, setMessageValue, ChatListData, setChatListData, user})}}
+                    onChange={e=>{handleOnChange({e, setMessageValue})}}
+                />
             </S.MessageForm>
             <S.ButtonWarpper>
                 <S.SendButton onClick={e=>{handleSendMessage({MessageValue, setMessageValue,  ChatListData,  setChatListData ,user})}}>
