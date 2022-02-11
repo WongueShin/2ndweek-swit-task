@@ -1,5 +1,5 @@
 import * as S from 'Components/Messenger/style.Messenger';
-import React, { useEffect, useState,useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Chat from 'Components/Messenger/Chat/index.Chat';
 import { useSelector } from 'react-redux';
 import { messageJson } from 'Components/Messenger/data';
@@ -9,14 +9,20 @@ import Input from 'Components/Messenger/Input/index.Input';
 import Header from 'Components/Header/index.Header';
 
 const Messenger = (): JSX.Element => {
-  const user:userState = useSelector((state: RootState) => state.user);
+  const user: userState = useSelector((state: RootState) => state.user);
   let messageJsonCopy = JSON.parse(JSON.stringify(messageJson));
-  const [ChatListData, setChatListData] = useState<MockDataType[]>(messageJsonCopy);
+  const [ChatListData, setChatListData] =
+    useState<MockDataType[]>(messageJsonCopy);
   const [reply, setReply] = useState<string>('');
   const chatRoom = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     let tmpData: MockDataType[] = [...ChatListData];
+    tmpData = tmpData.sort(function (a, b) {
+      let aTime = new Date(a.date).getTime();
+      let bTime = new Date(b.date).getTime();
+      return aTime - bTime;
+    });
     if (user.isLogin) {
       console.log('로그인');
       tmpData.map(el => {
@@ -32,11 +38,11 @@ const Messenger = (): JSX.Element => {
     }
   }, [user.isLogin]);
 
-  useEffect(()=>{
-    if(chatRoom.current){
-      chatRoom.current.scrollTop = chatRoom.current.scrollHeight
+  useEffect(() => {
+    if (chatRoom.current) {
+      chatRoom.current.scrollTop = chatRoom.current.scrollHeight;
     }
-  },[ChatListData])
+  }, [ChatListData]);
 
   const onDeleteEvent = (index: number): boolean => {
     let messageTmp = ChatListData[index].content;
@@ -79,7 +85,12 @@ const Messenger = (): JSX.Element => {
             })}
         </S.ChatList>
       </S.BoxShadowWarpper>
-      <Input reply={reply} setReply={setReply}  ChatListData = {ChatListData} setChatListData = {setChatListData}/>
+      <Input
+        reply={reply}
+        setReply={setReply}
+        ChatListData={ChatListData}
+        setChatListData={setChatListData}
+      />
     </S.MessengerContainer>
   );
 };
