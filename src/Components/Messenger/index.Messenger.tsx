@@ -12,7 +12,7 @@ const Messenger = (): JSX.Element => {
   const user:userState = useSelector((state: RootState) => state.user);
   let messageJsonCopy = JSON.parse(JSON.stringify(messageJson));
   const [ChatListData, setChatListData] = useState<MockDataType[]>(messageJsonCopy);
-  const [reply, setReply] = useState<string>('');
+  const [reply, setReply] = useState<number>(-1);
   const chatRoom = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
