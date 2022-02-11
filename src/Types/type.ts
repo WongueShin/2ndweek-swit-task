@@ -6,8 +6,3 @@ export interface MockDataType {
   date: string;
   isDel: boolean;
 }
-
-export interface UserIdType {
-  userId: string,
-  loginUser: string,
-}
