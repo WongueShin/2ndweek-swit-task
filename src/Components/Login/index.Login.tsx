@@ -2,6 +2,7 @@ import React, { useState, ChangeEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../Redux/index.Redux';
 import { onLogin, onLogout } from '../../Redux/user.Redux';
+import * as S from 'Components/Login/style.Login';
 const Login = () => {
   const user = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
@@ -10,8 +11,14 @@ const Login = () => {
   const onChangeUserName = (e: ChangeEvent<HTMLInputElement>) => {
     setUserNameInput(e.target.value);
   };
-  const onSubmit = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (userNameInput.length === 0) {
+      window.alert('이름을 입력해주세요');
+      return;
+    }
     dispatch(onLogin({ userName: userNameInput }));
+    setUserNameInput('');
   };
 
   const onLogoutClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -20,14 +27,20 @@ const Login = () => {
 
   return (
     <>
-      <span>이름 : </span>
-      <input
-        name="userNameInput"
-        value={userNameInput}
-        onChange={onChangeUserName}
-      />
-      <button onClick={onSubmit}>로그인</button>
-      <button onClick={onLogoutClick}>로그아웃</button>
+      <S.LoginContainer>
+        <S.LoginForm onSubmit={handleOnSubmit}>
+          <S.NameInPut
+            name="userNameInput"
+            value={userNameInput}
+            onChange={onChangeUserName}
+            placeholder="이름을 입력하세요"
+          />
+          <S.LoginLogoutButton type="submit">로그인</S.LoginLogoutButton>
+        </S.LoginForm>
+        <S.LoginLogoutButton onClick={onLogoutClick}>
+          로그아웃
+        </S.LoginLogoutButton>
+      </S.LoginContainer>
     </>
   );
 };
