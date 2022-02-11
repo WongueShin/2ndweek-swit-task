@@ -126,7 +126,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace;
+  font-family: 'Noto Sans KR',sans-serif;
   font-size: 1em;
 }
 
