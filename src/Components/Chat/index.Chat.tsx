@@ -3,12 +3,12 @@ import Balloon from 'Components/Balloon/index.Balloon';
 import UserProfile from 'Components/UserProfile/index.UserProfile';
 import Button from 'Components/Button/index.Button';
 import * as S from 'Components/Chat/style.Chat';
-import { dataType } from 'src/types/dataType';
+import { MockDataType } from 'src/Types/type';
 import { useSelector } from 'react-redux';
 import { RootState } from 'src/Redux/index.Redux';
 
 interface ChatPropsType {
-  data: dataType;
+  data: MockDataType;
 }
 
 const Chat = ({ data }: ChatPropsType): JSX.Element => {

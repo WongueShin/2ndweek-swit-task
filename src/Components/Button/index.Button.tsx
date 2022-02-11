@@ -1,14 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import * as S from "Components/Button/style.Button";
+import { UserIdType } from "src/Types/type";
 
-interface ButtonProps {
-  userId: string,
-  loginUser: string,
-}
-
-
-const Button = ({ userId,loginUser }: ButtonProps) => {
+const Button = ({ userId,loginUser }: UserIdType) => {
   return (
     <S.ButtonContainer>
       <S.Btn>

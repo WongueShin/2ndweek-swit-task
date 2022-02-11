@@ -14,6 +14,6 @@ export const ChatList = styled.ul`
   padding:0;
 `;
 
-export const Message = styled.li`
+export const Message = styled.li<{userId:string,loginUser:string}>`
 float:left;
 `;
