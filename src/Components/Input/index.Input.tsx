@@ -69,7 +69,7 @@ const Input = ({reply, ChatListData,  setChatListData}:InputPropsType):JSX.Eleme
     const [MessageValue, setMessageValue] = useState<string>('')
     useEffect( ()=> {
 
-    MessageValue === '' ? setMessageValue(reply) : setMessageValue(reply+MessageValue.split("\n").pop());
+    MessageValue === '' ? setMessageValue(reply) : setMessageValue(reply+MessageValue.split("\n").filter((el:string,index:number) => index > 1).join('\n'));
     },[reply])
 
     useEffect(() => {
