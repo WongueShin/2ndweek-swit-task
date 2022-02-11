@@ -9,7 +9,7 @@ import { RootState } from "src/Redux/index.Redux";
 
 interface ChatPropsType {
   data: MockDataType;
-  setReply: React.Dispatch<React.SetStateAction<string>>;
+  setReply: React.Dispatch<React.SetStateAction<number>>;
   onDelete(index: number): void;
   index: number;
 }
