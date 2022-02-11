@@ -70,12 +70,12 @@ const Input = ({reply, ChatListData,  setChatListData}:InputPropsType):JSX.Eleme
     const [oldReplyIndex, setOldReplyIndex] = useState<number>(-1);
     useEffect( ()=> {
         if(reply === -1) return;
-        const replyStr :string= `${ChatListData[reply].userName}\n${ChatListData[reply].content}\n`;
+        const replyStr :string= `${ChatListData[reply].userName}\n${ChatListData[reply].content}`;
         if(MessageValue === ''){
             setMessageValue(replyStr)
         } else {
         if(oldReplyIndex === -1) setOldReplyIndex(reply)
-        const oldReplyStr :string = `${ChatListData[oldReplyIndex].userName}\n${ChatListData[oldReplyIndex].content}\n`;
+        const oldReplyStr :string = `${ChatListData[oldReplyIndex].userName}\n${ChatListData[oldReplyIndex].content}`;
         setMessageValue(replyStr+MessageValue.replace(oldReplyStr,""));
         }
         setOldReplyIndex(reply);
