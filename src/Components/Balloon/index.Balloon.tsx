@@ -11,7 +11,7 @@ const Balloon = ({ data, loginUser }: BalloonProps) => {
     <S.BalloonContainer>
       <S.Header userId={data.userId} loginUser={loginUser}>{data.userName}{data.userId === loginUser && <span> * </span>}&nbsp;{ data.date}</S.Header>
       <S.Body userId={data.userId} loginUser={loginUser}>
-        {data.isDel === true ? <p>삭제된 메세지 입니다</p> : <pre>{data.content}</pre>}
+        {data.isDel ? <p>삭제된 메세지 입니다</p> : <pre>{data.content}</pre>}
         </S.Body>
     </S.BalloonContainer>
   );

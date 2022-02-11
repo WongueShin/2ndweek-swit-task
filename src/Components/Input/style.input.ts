@@ -14,7 +14,6 @@ export const MessageForm = styled.form`
     box-sizing: border-box;
     height: 50px;
 `
-
 export const MessageTextarea = styled.textarea`
     background-color: #e6e6ee;
     border-radius: 5px;
@@ -23,8 +22,18 @@ export const MessageTextarea = styled.textarea`
     height: 100%;
     resize: none;
     box-sizing: border-box;
+    overflow: auto;
     &:focus{
         outline: none;
+    }
+    &::-webkit-scrollbar {
+        border-radius: 6px;
+        background: none;
+        width: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+         border-radius: 6px;
+        background-color: #c4c4bd;
     }
 `
 export const ButtonWarpper = styled.div`
