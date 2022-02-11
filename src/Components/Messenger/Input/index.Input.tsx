@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'src/Redux/index.Redux';
 import { MockDataType, userState } from 'src/Types/type';
 import {USER_PROFILE_PATH} from 'Const/Constant';
-import * as S from 'Components/Input/style.input';
+import * as S from 'Components/Messenger/Input/style.input';
 
 interface InputPropsType {
     reply : string

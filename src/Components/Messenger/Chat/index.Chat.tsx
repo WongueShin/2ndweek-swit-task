@@ -1,8 +1,8 @@
 import React from "react";
-import Balloon from "Components/Balloon/index.Balloon";
+import Balloon from "Components/Messenger/Balloon/index.Balloon";
 import UserProfile from "Components/UserProfile/index.UserProfile";
-import Button from "Components/Button/index.Button";
-import * as S from "Components/Chat/style.Chat";
+import Button from "Components/Messenger/Button/index.Button";
+import * as S from "Components/Messenger/Chat/style.Chat";
 import { MockDataType } from "src/Types/type";
 import { useSelector } from "react-redux";
 import { RootState } from "src/Redux/index.Redux";

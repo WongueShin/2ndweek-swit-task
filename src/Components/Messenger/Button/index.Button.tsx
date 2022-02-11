@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faTrashCan } from '@fortawesome/free-solid-svg-icons';
-import * as S from 'Components/Button/style.Button';
+import * as S from 'Components/Messenger/Button/style.Button';
 import { MockDataType } from 'src/Types/type';
 
 interface ButtonPropsType {

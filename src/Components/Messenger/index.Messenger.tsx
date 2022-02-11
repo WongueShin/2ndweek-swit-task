@@ -1,11 +1,11 @@
 import * as S from 'Components/Messenger/style.Messenger';
 import React, { useEffect, useState,useRef } from 'react';
-import Chat from 'Components/Chat/index.Chat';
+import Chat from 'Components/Messenger/Chat/index.Chat';
 import { useSelector } from 'react-redux';
 import { messageJson } from 'Components/Messenger/data';
 import { MockDataType, userState } from 'src/Types/type';
 import { RootState } from 'src/Redux/index.Redux';
-import Input from 'Components/Input/index.Input';
+import Input from 'Components/Messenger/Input/index.Input';
 import Header from 'Components/Header/index.Header';
 
 const Messenger = (): JSX.Element => {

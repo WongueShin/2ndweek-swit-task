@@ -1,5 +1,5 @@
-import * as S from 'Components/Balloon/style.Balloon';
-import { MockDataType } from './../../Types/type';
+import * as S from 'Components/Messenger/Balloon/style.Balloon';
+import { MockDataType } from 'src/Types/type';
 
 interface BalloonProps {
   data: MockDataType;
