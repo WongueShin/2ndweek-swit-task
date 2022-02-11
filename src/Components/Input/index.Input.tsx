@@ -34,13 +34,13 @@ const Input = ():JSX.Element => {
 
     return(
         <S.InputContainer>
-            <form>
+            <S.MessageForm>
             <S.MessageTextarea 
                 placeholder="Message"
                 value={MessageValue}
                 onKeyDown={e=> {handleKeyDown({e, MessageValue, setMessageValue})}}
                 onChange={e=>{handleOnChange({e, setMessageValue})}}/>
-            </form>
+            </S.MessageForm>
         </S.InputContainer>
     )
 }
