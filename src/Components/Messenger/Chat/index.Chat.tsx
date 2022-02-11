@@ -1,7 +1,6 @@
 import React from "react";
 import Balloon from "Components/Messenger/Balloon/index.Balloon";
 import UserProfile from "Components/UserProfile/index.UserProfile";
-import Button from "Components/Messenger/Button/index.Button";
 import * as S from "Components/Messenger/Chat/style.Chat";
 import { MockDataType } from "src/Types/type";
 import { useSelector } from "react-redux";
@@ -25,19 +24,8 @@ const Chat = ({
     <S.ChatWarpper userId={data.userId} loginUser={user.userId}>
       {data.userId === user.userId ? (
         <>
-          {data.isDel === true ? null : (
-            <>
-              <Button
-                setReply={setReply}
-                data={data}
-                loginUser={user.userId}
-                index={index}
-                onDelete={onDelete}
-              />
-            </>
-          )}
           <S.BalloonWarpper>
-            <Balloon data={data} loginUser={user.userId} />
+            <Balloon index={index} data={data} setReply={setReply} onDelete={onDelete} loginUser={user.userId} />
           </S.BalloonWarpper>
           <UserProfile USER_PROFLE_PATH={data.profileImage} />
         </>
@@ -45,19 +33,8 @@ const Chat = ({
         <>
           <UserProfile USER_PROFLE_PATH={data.profileImage} />
           <S.BalloonWarpper>
-            <Balloon data={data} loginUser={user.userId} />
+            <Balloon index={index} setReply={setReply} onDelete={onDelete} data={data} loginUser={user.userId}/>
           </S.BalloonWarpper>
-          {data.isDel === true ? null : (
-            <>
-              <Button
-                setReply={setReply}
-                data={data}
-                loginUser={user.userId}
-                index={index}
-                onDelete={onDelete}
-              />
-            </>
-          )}
         </>
       )}
     </S.ChatWarpper>

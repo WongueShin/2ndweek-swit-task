@@ -33,9 +33,6 @@ interface KeyDownArgument extends SendMessageArgument{
     e : React.KeyboardEvent<HTMLTextAreaElement>
 }
 
-
-
-
 const handleKeyDown = ({e, MessageValue, setMessageValue, ChatListData, setChatListData, reply, setReply, user}:KeyDownArgument):void => {
     if(e.key === "Enter"){
         e.preventDefault();
