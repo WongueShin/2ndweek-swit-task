@@ -12,8 +12,10 @@ const Header = () => {
 
   return (
     <S.HeaderContainer>
-      <S.ChatName>독서모임</S.ChatName>
-      <S.ChatUserCount>({filterUserIdArr.length})</S.ChatUserCount>
+      <S.HeaderContent>
+        <S.ChatName>독서모임</S.ChatName>
+        <S.ChatUserCount>({filterUserIdArr.length})</S.ChatUserCount>
+      </S.HeaderContent>
     </S.HeaderContainer>
   );
 };
