@@ -17,9 +17,9 @@ const Chat = ({ data }: ChatPropsType): JSX.Element => {
     <S.ChatWarpper>
       {data.userId === user.userId ? (
         <>
-          <Button userName={data.userName} />
+          <Button userId={data.userId} loginUser={user.userId}/>
           <S.BalloonWarpper>
-            <Balloon content={data.content} userName={data.userName} />
+            <Balloon content={data.content} userId={data.userId} loginUser={user.userId}/>
           </S.BalloonWarpper>
           <UserProfile USER_PROFLE_PATH={data.profileImage} />
         </>
@@ -28,9 +28,9 @@ const Chat = ({ data }: ChatPropsType): JSX.Element => {
           {' '}
           <UserProfile USER_PROFLE_PATH={data.profileImage} />
           <S.BalloonWarpper>
-            <Balloon content={data.content} userName={data.userName} />
+            <Balloon content={data.content} userId={data.userId} loginUser={user.userId}/>
           </S.BalloonWarpper>
-          <Button userName={data.userName} />
+          <Button userId={data.userId} loginUser={user.userId}/>
         </>
       )}
     </S.ChatWarpper>
