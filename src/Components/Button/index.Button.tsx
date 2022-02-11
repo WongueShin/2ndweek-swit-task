@@ -6,14 +6,14 @@ import { UserIdType } from "src/Types/type";
 const Button = ({ userId,loginUser }: UserIdType) => {
   return (
     <S.ButtonContainer>
-      <S.Btn>
-        <FontAwesomeIcon icon={faAngleRight}/>
-      </S.Btn>
       {userId === loginUser && (
         <S.Btn>
           <FontAwesomeIcon icon={faTrashCan}/>
         </S.Btn>
       )}
+      <S.Btn>
+      <FontAwesomeIcon icon={faAngleRight}/>
+    </S.Btn>
     </S.ButtonContainer>
   );
 };
