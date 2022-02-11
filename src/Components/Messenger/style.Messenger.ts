@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
-export const MessengerContainer = styled.ul`
+export const MessengerContainer = styled.div`
+  width: 500px;
+`
+
+export const ChatList = styled.ul`
   list-style: none;
   background:#E2E5EE;
   height: 60vh;
-  width: 500px;
+  
   display:flex;
   flex-direction:column;
   padding:0;

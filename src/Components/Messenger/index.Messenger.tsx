@@ -29,8 +29,8 @@ const Messenger = (): JSX.Element => {
     }
   }, [user.userName, user.userId]);
   return (
-    <>
-      <S.MessengerContainer>
+    <S.MessengerContainer>
+      <S.ChatList>
         {data &&
           data.map((el :MockDataType , index:number) => {
             return (
@@ -39,9 +39,9 @@ const Messenger = (): JSX.Element => {
               </S.Message>
             );
           })}
-      </S.MessengerContainer>
+      </S.ChatList>
       <Input />
-    </>
+    </S.MessengerContainer>
   );
 };
 
