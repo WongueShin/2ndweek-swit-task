@@ -1,5 +1,5 @@
 import * as S from 'Components/Messenger/style.Messenger';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useRef } from 'react';
 import Chat from 'Components/Chat/index.Chat';
 import { useSelector } from 'react-redux';
 import { messageJson } from 'Components/Messenger/data';
@@ -13,6 +13,7 @@ const Messenger = (): JSX.Element => {
   let messageJsonCopy = JSON.parse(JSON.stringify(messageJson));
   const [ChatListData, setChatListData] = useState<MockDataType[]>(messageJsonCopy);
   const [reply, setReply] = useState<string>('');
+  const chatRoom = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     let tmpData: MockDataType[] = [...ChatListData];
@@ -30,6 +31,12 @@ const Messenger = (): JSX.Element => {
       setChatListData(messageJsonReset);
     }
   }, [user.isLogin]);
+
+  useEffect(()=>{
+    if(chatRoom.current){
+      chatRoom.current.scrollTop = chatRoom.current.scrollHeight
+    }
+  },[ChatListData])
 
   const onDeleteEvent = (index: number): boolean => {
     let messageTmp = ChatListData[index].content;
@@ -52,7 +59,7 @@ const Messenger = (): JSX.Element => {
     <S.MessengerContainer>
       <Header />
       <S.BoxShadowWarpper>
-        <S.ChatList>
+        <S.ChatList ref={chatRoom}>
           {ChatListData &&
             ChatListData.map((el: MockDataType, index: number) => {
               return (
