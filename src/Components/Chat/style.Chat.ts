@@ -6,6 +6,7 @@ export const ChatWarpper = styled.div<{userId:string,loginUser:string}>`
     height: fit-content;
     padding:10px;
     justify-content: ${props=>props.userId === props.loginUser ? "flex-end" : "flex-start"};
+    z-index: 500;
 `
 
 export const BalloonWarpper = styled.div`
