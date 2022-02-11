@@ -6,7 +6,7 @@ import {USER_PROFILE_PATH} from 'Const/Constant';
 import * as S from 'Components/Messenger/Input/style.input';
 
 interface InputPropsType {
-    reply : string
+    reply : number
     ChatListData : MockDataType[]
     setChatListData : React.Dispatch<React.SetStateAction<MockDataType[]>>
 }
@@ -67,9 +67,18 @@ const Input = ({reply, ChatListData,  setChatListData}:InputPropsType):JSX.Eleme
     const testAreaRef = useRef<HTMLTextAreaElement>(null);
     const user = useSelector((state: RootState) => state.user);
     const [MessageValue, setMessageValue] = useState<string>('')
+    const [oldReplyIndex, setOldReplyIndex] = useState<number>(-1);
     useEffect( ()=> {
-
-    MessageValue === '' ? setMessageValue(reply) : setMessageValue(reply+MessageValue.split("\n").filter((el:string,index:number) => index > 1).join('\n'));
+        if(reply === -1) return;
+        const replyStr :string= `${ChatListData[reply].userName}\n${ChatListData[reply].content}`;
+        if(MessageValue === ''){
+            setMessageValue(replyStr)
+        } else {
+        if(oldReplyIndex === -1) setOldReplyIndex(reply)
+        const oldReplyStr :string = `${ChatListData[oldReplyIndex].userName}\n${ChatListData[oldReplyIndex].content}`;
+        setMessageValue(replyStr+MessageValue.replace(oldReplyStr,""));
+        }
+        setOldReplyIndex(reply);
     },[reply])
 
     useEffect(() => {
