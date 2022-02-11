@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 26px 0px;
-  width: 500px;
-  box-shadow: inset 0 -7px 9px -7px rgba(0, 0, 0, 0.1);
+  padding: 15px 0px;
+  width: 100%;
+  box-shadow: inset 0 -7px 9px -7px rgba(0, 0, 0, 0.3);
   //box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.1);
 `;
 
@@ -13,9 +13,10 @@ export const ChatName = styled.span`
   display: inline-block;
   font-size: 24px;
   line-height: 100%;
-  font-weight: 500;
+  font-weight: 700;
   vertical-align: bottom;
   margin-left: 14px;
+  color: #404040;
 `;
 export const ChatUserCount = styled.span`
   display: inline-block;
@@ -34,7 +35,8 @@ export const HeaderSettingBtn = styled.button`
   margin-right: 16px;
   background: #f5f5f5;
   border: none;
+  color: #7a7a7a;
   :hover {
-    background-color: #f0eded;
+    color: #404040;
   }
 `;
