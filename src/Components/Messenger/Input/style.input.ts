@@ -12,7 +12,7 @@ export const InputContainer = styled.div`
 `
 export const MessageForm = styled.form`
     box-sizing: border-box;
-    height: 50px;
+    height: 7vh;
 `
 export const MessageTextarea = styled.textarea`
     background-color: #e6e6ee;
