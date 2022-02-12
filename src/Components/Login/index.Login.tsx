@@ -1,17 +1,15 @@
-import React, { useState, ChangeEvent, useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../Redux/index.Redux';
 import { onLogin, onLogout } from '../../Redux/user.Redux';
 import * as S from 'Components/Login/style.Login';
-//import useInput from 'src/Hooks/useInput';
+import useInput from '../../Hooks/useInput';
 const Login = () => {
   const user = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
-  const [userNameInput, setUserNameInput] = useState<string>('');
-  //const [userNameInput, onChangeUserName] = useInput<string>('');
-  const onChangeUserName = (e: ChangeEvent<HTMLInputElement>) => {
-    setUserNameInput(e.target.value);
-  };
+  const [userNameInput, setUserNameInput, onChangeUserName] =
+    useInput<string>('');
+
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (userNameInput.length === 0) {
