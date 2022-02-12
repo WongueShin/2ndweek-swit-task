@@ -1,23 +1,31 @@
 import styled from "styled-components";
 
 export const NavContainer = styled.div`
-  height: 10vw;
+  height: 10vh;
+  width: 100%;
   display: flex;
   align-items: center;
+  margin-left:10vw;
+  margin-top:10px;
+
 `;
 
 export const SearchBar = styled.div`
-  width: 70%;
+  width: 60%;
+  display: flex;
+  height: 50px;
+  align-items: center;
   background-color: #e6e6ee;
   margin-left:50px;
   border-radius: 6px;
   box-shadow: inset 10px 10px 20px #cdcdd4,
             inset -10px -10px 20px #ffffff;
+  font-size: 22px;
   input {
     width: 70%;
     outline:none;
     border:none;
-    background-color: #e6e6ee;
+    background-color: transparent;
     margin-left:30px;
   }
 `;
@@ -45,6 +53,7 @@ export const NavItemContainer = styled.div`
   height: 100%;
   align-items: center;
   justify-content: flex-end;
+
 `;
 
 export const NavItem = styled.span`
@@ -52,10 +61,15 @@ export const NavItem = styled.span`
   margin: 0 16px;
   color: #b5b5c6;
   position:relative;
+
+  &>*{
+    cursor:pointer;
+  }
 `;
 
 export const ProfileContainer = styled.div`
   position: relative;
+  cursor:pointer;
 `;
 
 export const LoginLight = styled.span<{ isLogin: boolean }>`
@@ -68,3 +82,4 @@ export const LoginLight = styled.span<{ isLogin: boolean }>`
   background-color: ${(props) => (props.isLogin ? "green" : "red")};
   border-radius: 50px;
 `;
+

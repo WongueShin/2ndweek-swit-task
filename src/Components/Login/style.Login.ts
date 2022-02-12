@@ -2,13 +2,13 @@ import styled from 'styled-components';
 
 export const LogoutContainer = styled.div`
   position: absolute;
-  top: 8vh;
-  right: 40px;
+  top: 4.5vh;
+  right: 50px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin-left: 30px;
-  width: 500px;
+  width: fit-content;
   margin-bottom: 10px;
 `;
 export const NameInput = styled.input`
