@@ -24,7 +24,6 @@ const Messenger = (): JSX.Element => {
   useEffect(() => {
     let tmpData: MockDataType[] = [...ChatListData];
     if (user.isLogin) {
-      console.log('로그인');
       tmpData.map(el => {
         if (el.userId === user.userId) {
           return (el.userName = user.userName);
@@ -32,7 +31,6 @@ const Messenger = (): JSX.Element => {
       });
       setChatListData(tmpData);
     } else {
-      console.log('로그아웃');
       let messageJsonReset = JSON.parse(JSON.stringify(messageJson));
       setChatListData(messageJsonReset);
     }
@@ -46,7 +44,6 @@ const Messenger = (): JSX.Element => {
 
   const onDeleteEvent = (index: number): boolean => {
     let messageTmp = ChatListData[index].content;
-    console.log(messageTmp.length);
     if (messageTmp.length > 10) {
       messageTmp = messageTmp.substring(0, 10) + '...';
     }
