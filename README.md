@@ -1,8 +1,8 @@
 # 2주차 과제 SWIT 기업과제 메신저 구현
 
-## Go Demo🚀
+## [Go Demo🚀](https://condescending-gates-c7cc70.netlify.app/)
 
-url=
+url=https://condescending-gates-c7cc70.netlify.app/
 
 ## Member
 
