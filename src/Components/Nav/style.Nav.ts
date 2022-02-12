@@ -45,6 +45,7 @@ export const IconContainer = styled.div`
     color: #706db1;
     text-align: center;
     font-size: 25px;
+    cursor: pointer;
     &:hover{
         background-color: #3b3987;
     }
