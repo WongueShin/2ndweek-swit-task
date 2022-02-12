@@ -45,8 +45,10 @@ export const ButtonWarpper = styled.div`
     justify-content: end;
 `
 export const SendButton = styled.button`
-    width: 120px;
-    height: 35px;
+    width: 15vw;
+    max-width: 150px;
+    height: 5vh;
+    max-height: 35px;
     background-color: #57b785;
     border-radius: 5px;
     color: #FFFFFF;

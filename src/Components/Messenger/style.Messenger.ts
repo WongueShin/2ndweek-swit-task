@@ -4,7 +4,7 @@ export const MessengerContainer = styled.div`
   width: 90vw;
   height: 90vh;
   padding: 9px;
-  margin-top: 9.5vh;
+  margin-top: 9.9vh;
   margin-left: 10vw;
   border: solid 1px #c3c3c3;
   border-radius: 5px;
