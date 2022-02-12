@@ -22,7 +22,7 @@ export const SearchBar = styled.div`
             inset -10px -10px 20px #ffffff;
   font-size: 22px;
   input {
-    width: 70%;
+    width: 50vw;
     outline:none;
     border:none;
     background-color: transparent;
