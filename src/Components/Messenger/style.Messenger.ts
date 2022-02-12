@@ -1,20 +1,23 @@
 import styled from "styled-components";
 
 export const MessengerContainer = styled.div`
-  width: 500px;
-  margin-left: 30px;
+  width: 90vw;
+  height: 90vh;
   padding: 9px;
+  margin-top: 9.5vh;
+  margin-left: 10vw;
   border: solid 1px #c3c3c3;
   border-radius: 5px;
+  box-sizing: border-box;
 `;
 
 export const ChatList = styled.ul`
   list-style: none;
   background: #e2e5ee;
-  height: 60vh;
+  height: 65vh;
   display:flex;
   flex-direction:column;
-  padding:0;
+  padding: 0 3vw;
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;

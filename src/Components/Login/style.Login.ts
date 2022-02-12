@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const LogoutContainer = styled.div`
+  position: absolute;
+  top: 2vh;
+  right: 10px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
