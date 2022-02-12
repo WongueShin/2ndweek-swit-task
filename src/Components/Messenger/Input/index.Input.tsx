@@ -143,6 +143,7 @@ const Input = ({
         />
       </S.MessageForm>
       <S.ButtonWarpper>
+        {MessageValue.length !== 0? <S.Notice>Shift+Enter로 새 행을 추가합니다.</S.Notice> : <></>}
         <S.SendButton
           disabled={MessageValue.length === 0}
           onClick={e => {
