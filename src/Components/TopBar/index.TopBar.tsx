@@ -12,11 +12,9 @@ const Nav = () => {
   return (
     <S.NavContainer>
         <S.SearchBar>
-        <S.NavItem>
         <form onSubmit={(e)=>{e.preventDefault()}}>
           <input type="text" placeholder="🔎Search"/>
         </form>
-        </S.NavItem>
         </S.SearchBar>
       <S.NavItemContainer>
       <S.NavItem>
