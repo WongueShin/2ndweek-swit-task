@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTableColumns, faUser, faBookOpen, faBarsStaggered, faEnvelope, faGear } from '@fortawesome/free-solid-svg-icons';
 
 const handleOnClick = ():void => {
-    alert("데모버전에서는 지원되지 않는 기능입니다.")
+    alert("데모버전에서는 지원하지않는 기능입니다.")
 }
 
 const Nav = ():JSX.Element => {
