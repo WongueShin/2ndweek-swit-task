@@ -44,6 +44,11 @@ export const ButtonWarpper = styled.div`
     display: flex;
     justify-content: end;
 `
+export const Notice = styled.div`
+    color: 	#999999;
+    margin-right: 5px;
+`
+
 export const SendButton = styled.button`
     width: 15vw;
     max-width: 150px;
