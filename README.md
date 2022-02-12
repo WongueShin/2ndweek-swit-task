@@ -185,14 +185,7 @@ npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
   </details>
 <br/>
 
-## 구현 중 이슈 해결
-  ### 입력창
-  <details>
-    <summary>Input Tag? Textarea Tag?</summary>
-    
-    
-  </details>
-  
+### [⚡구현 중 기술적 이슈들](https://www.notion.so/147cebca75be4244952fbc6e2c316065)
 <br/>
 
 ## 디렉토리 구조
@@ -221,6 +214,6 @@ npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
 
 ## 프로젝트 후기
 
-- 🎹신원규 :
+- 🎹신원규 : 바텀업으로 개발하며, 팀원간의 소통이 이전에 비해 활발해져 의사결정시간이 단축되어 좋은 아웃풋이 나오지 않았나 생각합니다.<br/>특히, 답장 기능이 기술적 이슈를 팀적으로 해결하는 경험은 상당히 흥미로웠고 협업을 하며 이슈를 어떤식으로 관리해야하는지에 대해 경험을 쌓을 수 있었던 기회였습니다.
 - 🎇김서윤 :
 - 🎈권영채 :
